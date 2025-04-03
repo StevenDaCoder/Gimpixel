@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .status {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="status" id="serverStatus">Loading server status...</h1>
+    <script>
+        // Function to update the server status text based on the value in localStorage
+        function updateServerStatus() {
+            const status = localStorage.getItem('serverStatus');
+            const statusText = document.getElementById('serverStatus');
+
+            if (status === '1') {
+                statusText.textContent = 'Server Status 🟢';
+            } else if (status === '0') {
+                statusText.textContent = 'Server Status 🔴';
+            } else {
+                statusText.textContent = 'Server Status Unknown';
+            }
+        }
+
+        // Call the function to update the status
+        updateServerStatus();
+    </script>
+</body>
+</html>
