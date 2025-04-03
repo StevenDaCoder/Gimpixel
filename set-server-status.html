@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Server Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Set Server Status</h1>
+    <div id="content">
+        <button onclick="setServerStatus(1)">Set Status to 🟢</button>
+        <button onclick="setServerStatus(0)">Set Status to 🔴</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to the external JS file -->
+    <script>
+        // Function to display content after successful password entry
+        function showContent() {
+            document.getElementById('content').style.display = 'block';
+        }
+
+        // Function to set the server status in localStorage
+        function setServerStatus(status) {
+            localStorage.setItem('serverStatus', status);
+            alert('Server status updated!');
+        }
+
+        // Ask for password when the page loads
+        askForPassword(showContent);
+    </script>
+</body>
+</html>
